@@ -15,4 +15,6 @@ class HomeViewController: UIViewController {
         
     }
     
+    @IBAction func backToWelcomeBtnTapped(_ sender: UIButton) {
+    }
 }
