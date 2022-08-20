@@ -190,7 +190,7 @@
                     <connections>
                         <outlet property="alreadyHaveAccountBytton" destination="bWn-bT-HsB" id="mPm-P3-9RD"/>
                         <outlet property="emailField" destination="2hL-Qz-2Dm" id="R1A-oU-gUq"/>
-                        <outlet property="errorLabel" destination="OkT-bx-W6s" id="Svg-Zr-7AW"/>
+                        <outlet property="errorLabel" destination="OkT-bx-W6s" id="ilu-cC-XsJ"/>
                         <outlet property="firstNameField" destination="6g7-zp-wP9" id="Yje-JK-WLh"/>
                         <outlet property="lastNameField" destination="fen-VU-TYm" id="piJ-s8-FgK"/>
                         <outlet property="passwordField" destination="XcK-1F-tl5" id="GE8-xJ-Azj"/>

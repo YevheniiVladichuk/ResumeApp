@@ -13,6 +13,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet var emailField: UITextField!
     @IBOutlet var passwordField: UITextField!
     @IBOutlet var signUpButton: UIButton!
+    @IBOutlet var errorLabel: UILabel!
     @IBOutlet var alreadyHaveAccountBytton: UIButton!
     
     override func viewDidLoad() {
