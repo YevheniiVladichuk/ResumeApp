@@ -42,13 +42,11 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         addVideo()
     }
- 
-    
     
     func addVideo() {
     
         let bundlePath = Bundle.main.path(forResource: "hands", ofType: "mp4")
-        guard bundlePath != nil  else {return}
+        guard bundlePath != nil else {return}
         
         //creat URL
         let url = URL(fileURLWithPath: bundlePath!)
@@ -60,7 +58,7 @@ class ViewController: UIViewController {
         videoPlayer = AVPlayer(playerItem: item)
         
         //layer
-        videoPlayerLayer = AVPlayerLayer(player: videoPlayer!)
+        videoPlayerLayer = AVPlayerLayer(player: videoPlayer)
         
         //creat size and frame
         videoPlayerLayer?.frame = CGRect(x: -self.view.frame.size.width*1.5, y:0, width: self.view.frame.size.width*4, height: self.view.frame.height)
@@ -69,7 +67,7 @@ class ViewController: UIViewController {
         //play it
         videoPlayer?.playImmediately(atRate: 1)
     }
-
-}
+   
+ }
 
 
