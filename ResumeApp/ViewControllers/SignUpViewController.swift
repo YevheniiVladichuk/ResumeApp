@@ -20,14 +20,20 @@ class SignUpViewController: UIViewController {
         super.viewDidLoad()
         stylizeElements()
 
-        
+    }
+    
+    //keyboard disappear by tap anywhere view
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+             self.view.endEditing(true)
     }
     
     @IBAction func signUpButtonTapped(_ sender: UIButton) {
+      
     }
     
     
     @IBAction func alreadyHaveAccountButtonTapped(_ sender: UIButton) {
+        segue(id: "LoginVC")
     }
     
     //buttons and fields style
@@ -50,6 +56,13 @@ class SignUpViewController: UIViewController {
         lastNameField.attributedPlaceholder = NSAttributedString(string: "Last name", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray.withAlphaComponent(0.5)])
         emailField.attributedPlaceholder = NSAttributedString(string: "Email", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray.withAlphaComponent(0.5)])
         passwordField.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray.withAlphaComponent(0.5)])
+    }
+    
+    //segue to the next view
+    func segue(id: String) {
+        let nextView = storyboard?.instantiateViewController(withIdentifier: id)
+        view?.window?.rootViewController = nextView
+        view?.window?.makeKeyAndVisible()
     }
     
     
