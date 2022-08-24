@@ -193,6 +193,7 @@
                         <outlet property="errorLabel" destination="OkT-bx-W6s" id="ilu-cC-XsJ"/>
                         <outlet property="firstNameField" destination="6g7-zp-wP9" id="Yje-JK-WLh"/>
                         <outlet property="lastNameField" destination="fen-VU-TYm" id="piJ-s8-FgK"/>
+                        <outlet property="mainStackView" destination="HmD-Vf-eg7" id="1gd-ah-ZA6"/>
                         <outlet property="passwordField" destination="XcK-1F-tl5" id="GE8-xJ-Azj"/>
                         <outlet property="signUpButton" destination="y08-2P-4wr" id="6zV-JW-JJb"/>
                     </connections>
