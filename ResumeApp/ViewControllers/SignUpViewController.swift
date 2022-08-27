@@ -35,6 +35,7 @@ class SignUpViewController: UIViewController {
         let error = checkFields()
         guard error == nil else {return showError(error: error!)}
         creatNewUser()
+    
     }
     
     
@@ -96,18 +97,9 @@ class SignUpViewController: UIViewController {
                 self.showError(error: error!.localizedDescription)
             }
         }
+       
         segue(id: "LoginVC")
     }
-    
-    //change stack
-    func newStack() {
-        mainStackView.isMultipleTouchEnabled = false
-        mainStackView.alpha = 0
-    }
-    
-    //нужно добавить новый лейбл и кнопку логи после регистрации на этом же вью так же убрать кнопу уже есть аккаунт
-    
-
     
 }
 

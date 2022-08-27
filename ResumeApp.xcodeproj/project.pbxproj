@@ -125,7 +125,6 @@
 				6B183947BCD0EDCC6C221BBE /* Pods-ResumeAppTests.debug.xcconfig */,
 				F96FDFAC92FD1442510DD8BA /* Pods-ResumeAppTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
