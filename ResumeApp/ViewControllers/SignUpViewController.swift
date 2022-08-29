@@ -7,7 +7,8 @@
 
 import UIKit
 import FirebaseAuth
-import FirebaseFirestore
+import FirebaseDatabase
+
 
 class SignUpViewController: UIViewController {
     @IBOutlet var mainStackView: UIStackView!
@@ -95,12 +96,23 @@ class SignUpViewController: UIViewController {
         Auth.auth().createUser(withEmail: emailField.text!, password: passwordField.text!) { authResult, error in
             if error != nil {
                 self.showError(error: error!.localizedDescription)
+                print (error!.localizedDescription)
+                return
             }
-        }
-       
-        segue(id: "LoginVC")
+            guard let uid = authResult?.user.uid else {return}
+            let values = ["email": self.emailField.text!, "name": self.firstNameField.text!, "lastName": self.lastNameField.text!]
+            
+            Database.database().reference().child("users").child(uid).updateChildValues(values) { error, ref in
+                if error != nil {
+                    print ("Failed to update database values with an error: \(error!.localizedDescription)")
+                    return
+            }
+            
+            }
+            self.segue(id: "LoginVC")
+            print ("Succesfully signed up")
+       }
     }
     
 }
-
 

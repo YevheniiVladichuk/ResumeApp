@@ -29,10 +29,10 @@ class LoginViewController: UIViewController {
     
     
     @IBAction func loginButtonTapped(_ sender: UIButton) {
-        let error = chekErrors()
+        let error = chekFields()
         guard error == nil else {return showError(error: error!)}
         login()
-        segue(id: "HomeVC")
+        
         
         
     }
@@ -64,18 +64,14 @@ class LoginViewController: UIViewController {
         view?.window?.makeKeyAndVisible()
     }
     
-    
-    func chekErrors() -> String? {
+    //check fields
+    func chekFields() -> String? {
         self.view.endEditing(true)
         if emailField.text?.isEmpty == true || passwordField.text?.isEmpty == true {
             
             return "You need to fill all fields !"
-        }else if emailField.text! != Auth.auth().currentUser?.email && passwordField.text! != Auth.auth().currentUser?.photoURL?.password {
-            
-            return "Check your data or creat an account"
-        }else {
-        return nil
         }
+        return nil
     }
     
     
@@ -87,7 +83,17 @@ class LoginViewController: UIViewController {
     
     //login
     func login() {
-        Auth.auth().signIn(withEmail: emailField.text!, password: passwordField.text!)
-    }
+        Auth.auth().signIn(withEmail: emailField.text!, password: passwordField.text!) { authResult, error in
+            if error != nil {
+                print ("Failed to Log In with an error: \(error!.localizedDescription)")
+                self.showError(error: "Check your data or sign up")
+                return
+            }else {
+                self.segue(id: "TabBarController")
+                print ("Log In succesed")
+            }
+        }
+
+     }
 
 }

@@ -9,6 +9,7 @@ target 'ResumeApp' do
     pod 'FirebaseAuth'
     pod 'FirebaseFirestore'
     pod 'FirebaseAnalytics'
+    pod 'FirebaseDatabase'
     
 
   target 'ResumeAppTests' do

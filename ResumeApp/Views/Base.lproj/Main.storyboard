@@ -298,7 +298,7 @@
             </objects>
             <point key="canvasLocation" x="1488" y="84"/>
         </scene>
-        <!--Home View Controller-->
+        <!--My profile-->
         <scene sceneID="GsH-Fu-rXq">
             <objects>
                 <viewController storyboardIdentifier="HomeVC" id="b0h-Gb-vqA" customClass="HomeViewController" customModule="ResumeApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -306,18 +306,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HOME SCREEN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0XU-v8-Pnr">
-                                <rect key="frame" x="139" y="449.66666666666669" width="150" height="27"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MgG-nQ-t6h">
                                 <rect key="frame" x="135" y="505" width="158" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="BACK TO WELCOME"/>
                                 <connections>
                                     <action selector="backToWelcomeBtnTapped:" destination="b0h-Gb-vqA" eventType="touchUpInside" id="CI2-JI-7NH"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HOME SCREEN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0XU-v8-Pnr">
+                                <rect key="frame" x="139" y="449.66666666666669" width="150" height="27"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hny-lz-Xve">
+                                <rect key="frame" x="338" y="44" width="73" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Log out"/>
+                                <connections>
+                                    <action selector="LogOut:" destination="b0h-Gb-vqA" eventType="touchUpInside" id="Mbm-I1-eKP"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -330,18 +339,68 @@
                             <constraint firstItem="0XU-v8-Pnr" firstAttribute="centerX" secondItem="uc9-M4-tSy" secondAttribute="centerX" id="t90-zi-hI9"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="My profile" image="person.fill" catalog="system" id="48b-b3-S9o"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ktd-No-5VJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2203" y="84"/>
+            <point key="canvasLocation" x="3108" y="-224"/>
+        </scene>
+        <!--Vacancy-->
+        <scene sceneID="RaO-RF-e30">
+            <objects>
+                <viewController id="2dF-uk-Wzi" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="40L-3v-I9T">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="VACANCIES" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nel-ff-r6A">
+                                <rect key="frame" x="156" y="450" width="117" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="uQx-HT-N6s"/>
+                        <color key="backgroundColor" systemColor="systemYellowColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Vacancy" image="network" catalog="system" id="LRf-2T-8uB"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wkb-0c-qfA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3108" y="503"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="4fv-SA-4M6">
+            <objects>
+                <tabBarController storyboardIdentifier="TabBarController" automaticallyAdjustsScrollViewInsets="NO" id="CtM-HW-dqi" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ZsC-vV-fcL">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="b0h-Gb-vqA" kind="relationship" relationship="viewControllers" id="WZ0-YT-oh9"/>
+                        <segue destination="2dF-uk-Wzi" kind="relationship" relationship="viewControllers" id="0P7-bC-KF3"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5bV-BX-6dg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2202.3364485981306" y="83.585313174946009"/>
         </scene>
     </scenes>
     <resources>
+        <image name="network" catalog="system" width="128" height="121"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
