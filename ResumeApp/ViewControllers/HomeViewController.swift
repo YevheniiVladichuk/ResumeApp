@@ -13,8 +13,7 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
+       
     }
     
     @IBAction func backToWelcomeBtnTapped(_ sender: UIButton) {
@@ -23,12 +22,13 @@ class HomeViewController: UIViewController {
     
     
     @IBAction func LogOut(_ sender: UIButton) {
-//        do {
-//            try Auth.auth().signOut()
-//        } catch {
-//            print (error)
-//        }
-        segue(id: "LoginVC")
+        do {
+            try Auth.auth().signOut()
+            segue(id: "LoginVC")
+            print ("Log out succesed")
+        } catch let err {
+            print ("Failed to sign out with error: \(err)")
+        }
     }
     
     
@@ -38,4 +38,6 @@ class HomeViewController: UIViewController {
         view?.window?.rootViewController = nextView
         view?.window?.makeKeyAndVisible()
     }
-}
+    
+   
+    }

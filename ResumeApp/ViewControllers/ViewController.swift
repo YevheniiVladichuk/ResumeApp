@@ -7,6 +7,8 @@
 
 import UIKit
 import AVKit
+import FirebaseAuth
+import FirebaseDatabase
 
 class ViewController: UIViewController {
     @IBOutlet var logInButton: UIButton!
@@ -17,8 +19,11 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+       
         Utilities.styleClearButtonBlack(signUpButton)
         Utilities.styleFilledButton(logInButton)
+    
     }
 
     @IBAction func logInButtonTapped(_ sender: UIButton) {
@@ -67,6 +72,7 @@ class ViewController: UIViewController {
         //play it
         videoPlayer?.playImmediately(atRate: 1)
     }
+    
    
  }
 
