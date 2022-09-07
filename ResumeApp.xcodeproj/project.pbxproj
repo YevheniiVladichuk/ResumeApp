@@ -10,6 +10,8 @@
 		14E83D75F4AED5DF5B1C9EB0 /* Pods_ResumeApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FED5DDB23E11BA2C50FE4CF0 /* Pods_ResumeApp.framework */; };
 		1DF5ED3BFA06258E6F170951 /* Pods_ResumeAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21A55365720D40043D70A9A9 /* Pods_ResumeAppTests.framework */; };
 		547DCEB287A614D0A57F8610 /* Pods_ResumeApp_ResumeAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C81894603E3830C452289086 /* Pods_ResumeApp_ResumeAppUITests.framework */; };
+		C6109BDF28C7880000DC1182 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6109BDE28C7880000DC1182 /* UserData.swift */; };
+		C6109BE128C78AFA00DC1182 /* ResumeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6109BE028C78AFA00DC1182 /* ResumeView.swift */; };
 		C65BDF7528B5113200A3628A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C65BDF7428B5113200A3628A /* GoogleService-Info.plist */; };
 		C69F5D8428B012480085AD79 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69F5D8328B012480085AD79 /* AppDelegate.swift */; };
 		C69F5D8628B012480085AD79 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69F5D8528B012480085AD79 /* SceneDelegate.swift */; };
@@ -27,6 +29,7 @@
 		C6A41FD128B1814900EA36C1 /* hands.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = C6A41FD028B1814900EA36C1 /* hands.mp4 */; };
 		C6A41FD228B1814900EA36C1 /* hands.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = C6A41FD028B1814900EA36C1 /* hands.mp4 */; };
 		C6A41FD328B1814900EA36C1 /* hands.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = C6A41FD028B1814900EA36C1 /* hands.mp4 */; };
+		C6E5CF0D28C5229E0014AEC3 /* SecondHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E5CF0C28C5229E0014AEC3 /* SecondHomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +55,8 @@
 		6B183947BCD0EDCC6C221BBE /* Pods-ResumeAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ResumeAppTests.debug.xcconfig"; path = "Target Support Files/Pods-ResumeAppTests/Pods-ResumeAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A1A7E9BC4C8643FA60FD62F0 /* Pods-ResumeApp-ResumeAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ResumeApp-ResumeAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-ResumeApp-ResumeAppUITests/Pods-ResumeApp-ResumeAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A543A8AD53E30FCF06B88569 /* Pods-ResumeApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ResumeApp.release.xcconfig"; path = "Target Support Files/Pods-ResumeApp/Pods-ResumeApp.release.xcconfig"; sourceTree = "<group>"; };
+		C6109BDE28C7880000DC1182 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		C6109BE028C78AFA00DC1182 /* ResumeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumeView.swift; sourceTree = "<group>"; };
 		C65BDF7428B5113200A3628A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C69F5D8028B012480085AD79 /* ResumeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ResumeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C69F5D8328B012480085AD79 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -71,6 +76,7 @@
 		C69F5DBB28B0145E0085AD79 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		C69F5DBE28B014D20085AD79 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		C6A41FD028B1814900EA36C1 /* hands.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = hands.mp4; sourceTree = "<group>"; };
+		C6E5CF0C28C5229E0014AEC3 /* SecondHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondHomeView.swift; sourceTree = "<group>"; };
 		C81894603E3830C452289086 /* Pods_ResumeApp_ResumeAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ResumeApp_ResumeAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F96FDFAC92FD1442510DD8BA /* Pods-ResumeAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ResumeAppTests.release.xcconfig"; path = "Target Support Files/Pods-ResumeAppTests/Pods-ResumeAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		FD50429DD42D7F4FD9E37D63 /* Pods-ResumeApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ResumeApp.debug.xcconfig"; path = "Target Support Files/Pods-ResumeApp/Pods-ResumeApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -128,6 +134,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		C6109BDD28C787C600DC1182 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C6109BDE28C7880000DC1182 /* UserData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		C63475AA28B17AC5004F0A22 /* Media */ = {
 			isa = PBXGroup;
 			children = (
@@ -166,6 +180,7 @@
 				C63475AA28B17AC5004F0A22 /* Media */,
 				C69F5D9128B0124D0085AD79 /* Info.plist */,
 				C69F5DB428B013410085AD79 /* Delegata */,
+				C6109BDD28C787C600DC1182 /* Model */,
 				C69F5DBD28B014BE0085AD79 /* Helpers */,
 				C69F5DB528B013630085AD79 /* ViewControllers */,
 				C69F5DC228B02BB10085AD79 /* Views */,
@@ -206,6 +221,7 @@
 				C69F5DB628B0139C0085AD79 /* SignUpViewController.swift */,
 				C69F5DB928B013E80085AD79 /* LoginViewController.swift */,
 				C69F5DBB28B0145E0085AD79 /* HomeViewController.swift */,
+				C6E5CF0C28C5229E0014AEC3 /* SecondHomeView.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -223,6 +239,7 @@
 			children = (
 				C69F5D8928B012480085AD79 /* Main.storyboard */,
 				C69F5D8E28B0124D0085AD79 /* LaunchScreen.storyboard */,
+				C6109BE028C78AFA00DC1182 /* ResumeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -300,6 +317,7 @@
 				TargetAttributes = {
 					C69F5D7F28B012480085AD79 = {
 						CreatedOnToolsVersion = 13.4.1;
+						LastSwiftMigration = 1400;
 					};
 					C69F5D9528B0124D0085AD79 = {
 						CreatedOnToolsVersion = 13.4.1;
@@ -474,9 +492,12 @@
 				C69F5D8428B012480085AD79 /* AppDelegate.swift in Sources */,
 				C69F5DBF28B014D20085AD79 /* Utilities.swift in Sources */,
 				C69F5DB728B0139C0085AD79 /* SignUpViewController.swift in Sources */,
+				C6109BDF28C7880000DC1182 /* UserData.swift in Sources */,
 				C69F5DBA28B013E80085AD79 /* LoginViewController.swift in Sources */,
 				C69F5D8628B012480085AD79 /* SceneDelegate.swift in Sources */,
 				C69F5DBC28B0145E0085AD79 /* HomeViewController.swift in Sources */,
+				C6E5CF0D28C5229E0014AEC3 /* SecondHomeView.swift in Sources */,
+				C6109BE128C78AFA00DC1182 /* ResumeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -652,6 +673,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Z9V4C4X7P6;
@@ -669,6 +691,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "gorillakong-icloud.com";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -680,6 +703,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Z9V4C4X7P6;

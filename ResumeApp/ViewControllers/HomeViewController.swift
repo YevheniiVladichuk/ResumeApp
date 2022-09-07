@@ -11,16 +11,14 @@ import FirebaseFirestore
 
 class HomeViewController: UIViewController {
 
+    @IBOutlet weak var nameLable: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
     }
     
-    @IBAction func backToWelcomeBtnTapped(_ sender: UIButton) {
-    }
-    
-    
-    
+   
     @IBAction func LogOut(_ sender: UIButton) {
         do {
             try Auth.auth().signOut()
