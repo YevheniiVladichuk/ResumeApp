@@ -21,20 +21,32 @@ class SignUpViewController: UIViewController {
     @IBOutlet var errorLabel: UILabel!
     @IBOutlet var alreadyHaveAccountBytton: UIButton!
     
+    @IBOutlet var cityCountyField: UITextField!
+    @IBOutlet var ageField: UITextField!
+    @IBOutlet var phoneNumberField: UITextField!
+    
+
+    @IBOutlet var scrollView: UIScrollView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+       
+        
     }
+    
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         stylizeElements()
     }
     
-    //keyboard disappear by tap anywhere view
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-             self.view.endEditing(true)
+    
+    
+    @IBAction func hideKeyboard(_ sender: Any) {
+        scrollView.endEditing(true)
     }
+    
     
     @IBAction func signUpButtonTapped(_ sender: UIButton) {
         self.view.endEditing(true)
@@ -48,6 +60,8 @@ class SignUpViewController: UIViewController {
     @IBAction func alreadyHaveAccountButtonTapped(_ sender: UIButton) {
         segue(id: "LoginVC")
     }
+
+    
     
     //buttons and fields style
     func stylizeElements() {
@@ -55,6 +69,10 @@ class SignUpViewController: UIViewController {
         Utilities.styleTextField(lastNameField)
         Utilities.styleTextField(emailField)
         Utilities.styleTextField(passwordField)
+        Utilities.styleTextField(cityCountyField)
+        Utilities.styleTextField(ageField)
+        Utilities.styleTextField(phoneNumberField)
+        
         
         Utilities.styleFilledButton(signUpButton)
         errorLabel.alpha = 0
@@ -70,6 +88,10 @@ class SignUpViewController: UIViewController {
         lastNameField.attributedPlaceholder = NSAttributedString(string: "Last name", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray.withAlphaComponent(0.5)])
         emailField.attributedPlaceholder = NSAttributedString(string: "Email", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray.withAlphaComponent(0.5)])
         passwordField.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray.withAlphaComponent(0.5)])
+        cityCountyField.attributedPlaceholder = NSAttributedString(string: "City, country", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray.withAlphaComponent(0.5)])
+        ageField.attributedPlaceholder = NSAttributedString(string: "Age", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray.withAlphaComponent(0.5)])
+        phoneNumberField.attributedPlaceholder = NSAttributedString(string: "Phone number", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray.withAlphaComponent(0.5)])
+        
     }
     
     //segue to the next view
@@ -105,7 +127,7 @@ class SignUpViewController: UIViewController {
                 return
             }
             guard let uid = authResult?.user.uid else {return}
-            let values = ["email": self.emailField.text!, "name": self.firstNameField.text!, "lastName": self.lastNameField.text!]
+            let values = ["email": self.emailField.text!, "name": self.firstNameField.text!, "lastName": self.lastNameField.text!, "City,county": self.cityCountyField.text!, "Age": self.ageField.text!, "Phone number": self.phoneNumberField.text!]
             
             Database.database().reference().child("users").child(uid).updateChildValues(values) { error, ref in
                 if error != nil {
