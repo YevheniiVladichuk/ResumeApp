@@ -264,6 +264,21 @@
             </objects>
             <point key="canvasLocation" x="799.53488372093022" y="83.690987124463518"/>
         </scene>
+        <!--Upload Photo Controller-->
+        <scene sceneID="CDf-nu-fi9">
+            <objects>
+                <viewController storyboardIdentifier="UploadPhotoVC" id="BZM-VI-53e" customClass="UploadPhotoController" customModule="ResumeApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dlZ-7f-Wkz">
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="enf-3i-koM"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="L9R-dP-nFc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="800" y="740"/>
+        </scene>
         <!--Login View Controller-->
         <scene sceneID="3Ov-d3-DWu">
             <objects>

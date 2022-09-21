@@ -32,7 +32,7 @@ class ViewController: UIViewController {
     
     
     @IBAction func signUpButtonTapped(_ sender: UIButton) {
-        segue(id: "SignUpVC")
+        segue(id: "UploadPhotoVC")
     }
     
     
