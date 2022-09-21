@@ -67,16 +67,26 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ijI-yQ-1zc">
+                                <rect key="frame" x="239" y="441" width="156" height="34.333333333333314"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Developer button"/>
+                                <connections>
+                                    <action selector="developerButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QNB-NQ-QaT"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="rMy-aK-ITN" secondAttribute="trailing" constant="35" id="1vJ-TD-6Vd"/>
                             <constraint firstItem="rMy-aK-ITN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="6QF-gW-3xg"/>
+                            <constraint firstItem="ijI-yQ-1zc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="102" id="BCo-iV-TGF"/>
                             <constraint firstItem="djV-Ud-lEX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="35" id="MuB-LM-TqD"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="djV-Ud-lEX" secondAttribute="bottom" constant="20" id="O5v-lQ-ZGn"/>
                             <constraint firstItem="rMy-aK-ITN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="35" id="Yzb-gT-BNI"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="djV-Ud-lEX" secondAttribute="trailing" constant="35" id="qg6-Dj-c9m"/>
+                            <constraint firstItem="ijI-yQ-1zc" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-7.8333333333333712" id="sMc-U2-MXS"/>
                         </constraints>
                     </view>
                     <connections>

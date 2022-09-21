@@ -30,9 +30,13 @@ class ViewController: UIViewController {
         segue(id: "LoginVC")
     }
     
+    //TEMPORARILY BUTTON
+    @IBAction func developerButton(_ sender: Any) {
+        segue(id: "UploadPhotoVC")
+    }
     
     @IBAction func signUpButtonTapped(_ sender: UIButton) {
-        segue(id: "UploadPhotoVC")
+        segue(id: "SignUpVC")
     }
     
     
