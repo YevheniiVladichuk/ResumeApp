@@ -8,31 +8,43 @@
 import UIKit
 
 class UploadPhotoController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
-
+    let newView = UIView()
+    let imageView = UIImageView()
+    let nextButton = UIButton()
+    let skipButton = UIButton()
+    let uploadButton = UIButton()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         addElementsToTheUI()
+        
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        Utilities.photoViewStyle(imageView)
     }
 
     func addElementsToTheUI() {
         
     //add new view
-        let newView = UIView()
-        newView.backgroundColor = #colorLiteral(red: 0.1046463028, green: 0.107996963, blue: 0.1236616001, alpha: 1)
         newView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(newView)
+       
+        
 
         newView.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
         newView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -125).isActive = true
         newView.heightAnchor.constraint(equalToConstant: 225).isActive = true
         newView.widthAnchor.constraint(equalToConstant: 225).isActive = true
 
-    //add iImageView to NewView
-        let imageView = UIImageView()
+    //add imageView to newView
         let margins = newView.layoutMarginsGuide
-        imageView.backgroundColor = #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1)
         imageView.translatesAutoresizingMaskIntoConstraints =  false
         newView.addSubview(imageView)
+        
+        
 
         imageView.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: 0).isActive = true
         imageView.trailingAnchor.constraint(equalTo: margins.trailingAnchor, constant: 0).isActive = true
@@ -40,12 +52,12 @@ class UploadPhotoController: UIViewController, UINavigationControllerDelegate, U
         imageView.bottomAnchor.constraint(equalTo: margins.bottomAnchor, constant: 0).isActive = true
 
     //add upload button
-        let uploadButton = UIButton()
-        uploadButton.setTitle("Upload photo", for: .normal)
+        
+        uploadButton.setTitle("Сhoose photo", for: .normal)
         Utilities.styleFilledButton(uploadButton)
         uploadButton.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(uploadButton)
-        uploadButton.addTarget(self, action: #selector(uploadButtonTapped), for: .touchUpInside)
+        uploadButton.addTarget(self, action: #selector(chooseButtonTapped), for: .touchUpInside)
 
 
         uploadButton.topAnchor.constraint(equalTo: margins.bottomAnchor, constant: 25).isActive = true
@@ -56,12 +68,13 @@ class UploadPhotoController: UIViewController, UINavigationControllerDelegate, U
         
         
     //add skip button
-        let skipButton = UIButton()
+        
         skipButton.setTitle("Skip", for: .normal)
         skipButton.configuration = .plain()
         skipButton.tintColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         skipButton.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(skipButton)
+        skipButton.addTarget(self, action: #selector(skipButtonTapped), for: .touchUpInside)
         
         skipButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
     
@@ -71,12 +84,63 @@ class UploadPhotoController: UIViewController, UINavigationControllerDelegate, U
         skipButton.widthAnchor.constraint(equalToConstant: 185).isActive = true
         skipButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
-    }
-    
-    @objc func uploadButtonTapped() {
+        
+    //add nextButton which upload photo to the DataBase and drop to the next view
+       
+        nextButton.setTitle("Next", for: .normal)
+        nextButton.configuration = .plain()
+        nextButton.tintColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        nextButton.translatesAutoresizingMaskIntoConstraints =  false
+        view.addSubview(nextButton)
+        
+        nextButton.topAnchor.constraint(equalTo: uploadButton.bottomAnchor, constant: 20).isActive = true
+        
+        nextButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        nextButton.widthAnchor.constraint(equalToConstant: 185).isActive = true
+        nextButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
+        nextButton.alpha = 0
+        nextButton.isEnabled = false
         
     }
     
+    //Upload photo to th imageView
+        @objc func chooseButtonTapped(){
+            let image = UIImagePickerController()
+            image.delegate = self
+            
+            image.sourceType = .photoLibrary
+            image.allowsEditing = true
+            
+            self.present(image, animated: true)
+            
+           
+        }
+    
+        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+             guard let image = info[.editedImage] as? UIImage else { return }
+              
+             dismiss(animated: true)
 
-
+             imageView.image = image
+            
+            if imageView.image != nil {
+                nextButton.alpha = 1
+                nextButton.isEnabled = true
+                
+                skipButton.alpha = 0
+                skipButton.isEnabled = false
+            }
+        }
+                             
+        @objc func skipButtonTapped() {
+            segue(id: "LoginVC")
+        }
+    
+    //segue to next view
+        func segue(id: String ) {
+        let nextView = storyboard?.instantiateViewController(withIdentifier: id)
+        view?.window?.rootViewController = nextView
+        view?.window?.makeKeyAndVisible()
+    }
+    
 }

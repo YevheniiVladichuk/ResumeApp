@@ -39,7 +39,6 @@ class ViewController: UIViewController {
         segue(id: "SignUpVC")
     }
     
-    
     //segue to next view
     func segue(id: String ) {
         let nextView = storyboard?.instantiateViewController(withIdentifier: id)

@@ -51,10 +51,22 @@ class Utilities {
         textField.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
     }
     
+    
     //Password check
     static func checkPassword(_ passord: String) -> Bool {
         let passwordCheck = NSPredicate(format: "SELF MATCHES %@", "^(?=.*[a-z])(?=.*[$@$#!%*?&])[A-Za-z\\d$@$#!%*?&]{8,}")
         return passwordCheck.evaluate(with: passord)
+    }
+    
+    //Photo view style
+    static func photoViewStyle(_ view:UIView) {
+        
+        let view = view
+        view.layer.cornerRadius = view.layer.bounds.width/2
+        view.clipsToBounds = true
+        view.layer.borderWidth = 0.25
+        view.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        view.layer.backgroundColor = #colorLiteral(red: 0.9215685725, green: 0.9215685725, blue: 0.9215685725, alpha: 1)
     }
     
 }
