@@ -21,7 +21,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet var errorLabel: UILabel!
     @IBOutlet var alreadyHaveAccountBytton: UIButton!
     
-    @IBOutlet var cityCountyField: UITextField!
+    @IBOutlet var cityCountryField: UITextField!
     @IBOutlet var ageField: UITextField!
     @IBOutlet var phoneNumberField: UITextField!
     
@@ -69,7 +69,7 @@ class SignUpViewController: UIViewController {
         Utilities.styleTextField(lastNameField)
         Utilities.styleTextField(emailField)
         Utilities.styleTextField(passwordField)
-        Utilities.styleTextField(cityCountyField)
+        Utilities.styleTextField(cityCountryField)
         Utilities.styleTextField(ageField)
         Utilities.styleTextField(phoneNumberField)
         
@@ -88,7 +88,7 @@ class SignUpViewController: UIViewController {
         lastNameField.attributedPlaceholder = NSAttributedString(string: "Last name", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray.withAlphaComponent(0.5)])
         emailField.attributedPlaceholder = NSAttributedString(string: "Email", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray.withAlphaComponent(0.5)])
         passwordField.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray.withAlphaComponent(0.5)])
-        cityCountyField.attributedPlaceholder = NSAttributedString(string: "City, country", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray.withAlphaComponent(0.5)])
+        cityCountryField.attributedPlaceholder = NSAttributedString(string: "City, country", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray.withAlphaComponent(0.5)])
         ageField.attributedPlaceholder = NSAttributedString(string: "Age", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray.withAlphaComponent(0.5)])
         phoneNumberField.attributedPlaceholder = NSAttributedString(string: "Phone number", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray.withAlphaComponent(0.5)])
         
@@ -105,7 +105,10 @@ class SignUpViewController: UIViewController {
     func checkFields()-> String? {
         if firstNameField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || lastNameField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
             emailField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
-            passwordField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
+            passwordField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
+            cityCountryField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
+            ageField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
+            phoneNumberField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
             return "Sorry, you need to fil all fields !"
         }
         
@@ -127,7 +130,7 @@ class SignUpViewController: UIViewController {
                 return
             }
             guard let uid = authResult?.user.uid else {return}
-            let values = ["email": self.emailField.text!, "name": self.firstNameField.text!, "lastName": self.lastNameField.text!, "City,county": self.cityCountyField.text!, "Age": self.ageField.text!, "Phone number": self.phoneNumberField.text!]
+            let values = ["email": self.emailField.text!, "name": self.firstNameField.text!, "lastName": self.lastNameField.text!, "cityCountry": self.cityCountryField.text!, "age": self.ageField.text!, "phoneNumber": self.phoneNumberField.text!]
             
             Database.database().reference().child("users").child(uid).updateChildValues(values) { error, ref in
                 if error != nil {
@@ -136,7 +139,7 @@ class SignUpViewController: UIViewController {
             }
             
             }
-            self.segue(id: "LoginVC")
+            self.segue(id: "UploadPhotoVC")
             print ("Succesfully signed up")
        }
     }

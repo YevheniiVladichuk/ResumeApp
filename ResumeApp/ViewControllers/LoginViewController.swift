@@ -37,14 +37,12 @@ class LoginViewController: UIViewController {
         let error = chekFields()
         guard error == nil else {return showError(error: error!)}
         login()
-        
-        
-        
     }
     
     @IBAction func signUpButtonTapped(_ sender: UIButton) {
         segue(id: "SignUpVC")
     }
+    
     
     
     //style

@@ -133,7 +133,7 @@ class UploadPhotoController: UIViewController, UINavigationControllerDelegate, U
         }
                              
         @objc func skipButtonTapped() {
-            segue(id: "LoginVC")
+            segue(id: "TabBarController")
         }
     
     //segue to next view
