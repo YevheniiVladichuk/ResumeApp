@@ -6,13 +6,18 @@
 //
 
 import UIKit
+import FirebaseStorage
+import FirebaseAuth
+import FirebaseDatabase
+
 
 class UploadPhotoController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     let newView = UIView()
     let imageView = UIImageView()
     let nextButton = UIButton()
     let skipButton = UIButton()
-    let uploadButton = UIButton()
+    let choosePhotoButton = UIButton()
+   
     
     
     override func viewDidLoad() {
@@ -51,20 +56,23 @@ class UploadPhotoController: UIViewController, UINavigationControllerDelegate, U
         imageView.topAnchor.constraint(equalTo: margins.topAnchor, constant: 0).isActive = true
         imageView.bottomAnchor.constraint(equalTo: margins.bottomAnchor, constant: 0).isActive = true
 
-    //add upload button
+    //add choose photo button
         
-        uploadButton.setTitle("Сhoose photo", for: .normal)
-        Utilities.styleFilledButton(uploadButton)
-        uploadButton.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(uploadButton)
-        uploadButton.addTarget(self, action: #selector(chooseButtonTapped), for: .touchUpInside)
+        choosePhotoButton.setTitle("Сhoose photo", for: .normal)
+        Utilities.styleClearButtonBlack(choosePhotoButton)
+        choosePhotoButton.configuration = .plain()
+        choosePhotoButton.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(choosePhotoButton)
+        choosePhotoButton.addTarget(self, action: #selector(chooseButtonTapped), for: .touchUpInside)
 
 
-        uploadButton.topAnchor.constraint(equalTo: margins.bottomAnchor, constant: 25).isActive = true
-        uploadButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
+        choosePhotoButton.topAnchor.constraint(equalTo: margins.bottomAnchor, constant: 25).isActive = true
+        choosePhotoButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
 
-        uploadButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        uploadButton.widthAnchor.constraint(equalToConstant: 185).isActive = true
+        choosePhotoButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        choosePhotoButton.widthAnchor.constraint(equalToConstant: 185).isActive = true
+        
+        
         
         
     //add skip button
@@ -88,12 +96,11 @@ class UploadPhotoController: UIViewController, UINavigationControllerDelegate, U
     //add nextButton which upload photo to the DataBase and drop to the next view
        
         nextButton.setTitle("Next", for: .normal)
-        nextButton.configuration = .plain()
-        nextButton.tintColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        Utilities.styleFilledButton(nextButton)
         nextButton.translatesAutoresizingMaskIntoConstraints =  false
         view.addSubview(nextButton)
         
-        nextButton.topAnchor.constraint(equalTo: uploadButton.bottomAnchor, constant: 20).isActive = true
+        nextButton.topAnchor.constraint(equalTo: choosePhotoButton.bottomAnchor, constant: 20).isActive = true
         
         nextButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         nextButton.widthAnchor.constraint(equalToConstant: 185).isActive = true
@@ -101,9 +108,13 @@ class UploadPhotoController: UIViewController, UINavigationControllerDelegate, U
         nextButton.alpha = 0
         nextButton.isEnabled = false
         
+        nextButton.addTarget(self, action: #selector(nextButtonTapped), for: .touchUpInside)
+        
     }
     
-    //Upload photo to th imageView
+    
+    
+    //choose photo to the imageView
         @objc func chooseButtonTapped(){
             let image = UIImagePickerController()
             image.delegate = self
@@ -112,8 +123,6 @@ class UploadPhotoController: UIViewController, UINavigationControllerDelegate, U
             image.allowsEditing = true
             
             self.present(image, animated: true)
-            
-           
         }
     
         func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -135,6 +144,31 @@ class UploadPhotoController: UIViewController, UINavigationControllerDelegate, U
         @objc func skipButtonTapped() {
             segue(id: "TabBarController")
         }
+    
+    //upload photo to the FireBase and show next view
+    
+         @objc func nextButtonTapped() {
+            
+             guard FirebaseAuth.Auth.auth().currentUser != nil else {return print ("something wrong")}
+             guard imageView.image != nil else {return print("Doesn't see the photo")}
+             
+             let uid = FirebaseAuth.Auth.auth().currentUser!.uid
+             
+             let storageRef = Storage.storage().reference().child("usersPhoto").child("\(uid).jpg")
+             
+             let photo = imageView.image?.jpegData(compressionQuality: 1)
+             
+             storageRef.putData(photo!, metadata: nil) { (metadata, error) in
+                 if error != nil {
+                     print (error!)
+                     return
+                 }
+                 print ("Upload success")
+                 self.segue(id: "TabBarController")
+             }
+             
+        }
+    
     
     //segue to next view
         func segue(id: String ) {

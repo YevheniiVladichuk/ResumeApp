@@ -549,6 +549,7 @@
                     <connections>
                         <outlet property="ageLabel" destination="dwK-1e-Vf2" id="FOu-ky-Ir8"/>
                         <outlet property="cityCountryLabel" destination="jUf-hp-1wm" id="aOi-p5-WJf"/>
+                        <outlet property="imageViewPhoto" destination="3cn-ll-eeg" id="lXi-OD-6K3"/>
                         <outlet property="lastNameLabel" destination="eFy-K3-Hgx" id="8uR-Rw-NPO"/>
                         <outlet property="logOutButton" destination="iak-F7-zio" id="wBF-nL-CGJ"/>
                         <outlet property="nameLabel" destination="WMp-sz-yKd" id="7hr-2c-Nrd"/>

@@ -10,6 +10,8 @@ target 'ResumeApp' do
     pod 'FirebaseFirestore'
     pod 'FirebaseAnalytics'
     pod 'FirebaseDatabase'
+    pod 'FirebaseStorage'
+    pod 'FirebaseStorageUI'
     
 
   target 'ResumeAppTests' do
