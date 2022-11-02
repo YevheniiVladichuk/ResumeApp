@@ -8,6 +8,8 @@
 import UIKit
 import FirebaseAuth
 import FirebaseFirestore
+import FirebaseDatabase
+import FirebaseStorage
 
 class LoginViewController: UIViewController {
     @IBOutlet var emailField: UITextField!
@@ -15,11 +17,13 @@ class LoginViewController: UIViewController {
     @IBOutlet var logInButton: UIButton!
     @IBOutlet var errorLabel: UILabel!
     @IBOutlet var signUpButton: UIButton!
-
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
+    
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -29,7 +33,7 @@ class LoginViewController: UIViewController {
     
     //keyboard disappear by tap anywhere view
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-             self.view.endEditing(true)
+        self.view.endEditing(true)
     }
     
     
@@ -39,13 +43,13 @@ class LoginViewController: UIViewController {
         login()
     }
     
+    
     @IBAction func signUpButtonTapped(_ sender: UIButton) {
         segue(id: "SignUpVC")
     }
     
     
-    
-    //style
+    //elements style
     func stylizeElements() {
         Utilities.styleTextField(emailField)
         Utilities.styleTextField(passwordField)
@@ -67,11 +71,11 @@ class LoginViewController: UIViewController {
         view?.window?.makeKeyAndVisible()
     }
     
+    
     //check fields
     func chekFields() -> String? {
         self.view.endEditing(true)
         if emailField.text?.isEmpty == true || passwordField.text?.isEmpty == true {
-            
             return "You need to fill all fields !"
         }
         return nil
@@ -84,6 +88,7 @@ class LoginViewController: UIViewController {
         errorLabel.text! = error
     }
     
+    
     //login
     func login() {
         Auth.auth().signIn(withEmail: emailField.text!, password: passwordField.text!) { authResult, error in
@@ -92,12 +97,9 @@ class LoginViewController: UIViewController {
                 self.showError(error: "Check your data or sign up")
                 return
             }else {
-                self.segue(id: "TabBarController")
-                print ("Log In succesed")
+                self.segue(id: "HomeVC")
+                print ("Loged In success")
             }
         }
-
-     }
-    
-
+    }
 }

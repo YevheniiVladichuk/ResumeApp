@@ -20,24 +20,20 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       
         Utilities.styleClearButtonBlack(signUpButton)
         Utilities.styleFilledButton(logInButton)
-    
     }
 
+    
     @IBAction func logInButtonTapped(_ sender: UIButton) {
         segue(id: "LoginVC")
     }
     
-    //TEMPORARILY BUTTON
-    @IBAction func developerButton(_ sender: Any) {
-        segue(id: "UploadPhotoVC")
-    }
     
     @IBAction func signUpButtonTapped(_ sender: UIButton) {
         segue(id: "SignUpVC")
     }
+    
     
     //segue to next view
     func segue(id: String ) {
@@ -50,6 +46,7 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         addVideo()
     }
+    
     
     func addVideo() {
     

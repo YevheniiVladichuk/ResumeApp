@@ -30,9 +30,6 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-       
-        
     }
     
     
@@ -53,7 +50,6 @@ class SignUpViewController: UIViewController {
         let error = checkFields()
         guard error == nil else {return showError(error: error!)}
         creatNewUser()
-    
     }
     
     
@@ -61,7 +57,6 @@ class SignUpViewController: UIViewController {
         segue(id: "LoginVC")
     }
 
-    
     
     //buttons and fields style
     func stylizeElements() {
@@ -91,8 +86,8 @@ class SignUpViewController: UIViewController {
         cityCountryField.attributedPlaceholder = NSAttributedString(string: "City, country", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray.withAlphaComponent(0.5)])
         ageField.attributedPlaceholder = NSAttributedString(string: "Age", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray.withAlphaComponent(0.5)])
         phoneNumberField.attributedPlaceholder = NSAttributedString(string: "Phone number", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray.withAlphaComponent(0.5)])
-        
     }
+    
     
     //segue to the next view
     func segue(id: String) {
@@ -100,6 +95,7 @@ class SignUpViewController: UIViewController {
         view?.window?.rootViewController = nextView
         view?.window?.makeKeyAndVisible()
     }
+    
     
     //check the fields
     func checkFields()-> String? {
@@ -111,15 +107,16 @@ class SignUpViewController: UIViewController {
             phoneNumberField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
             return "Sorry, you need to fil all fields !"
         }
-        
      return nil
     }
+    
     
     //show error message
     func showError(error: String) {
         errorLabel.alpha = 1
         errorLabel.text! = error
     }
+    
     
     //creat new user
     func creatNewUser() {
@@ -136,13 +133,11 @@ class SignUpViewController: UIViewController {
                 if error != nil {
                     print ("Failed to update database values with an error: \(error!.localizedDescription)")
                     return
-            }
-            
+                }
             }
             self.segue(id: "UploadPhotoVC")
             print ("Succesfully signed up")
        }
     }
-    
 }
 

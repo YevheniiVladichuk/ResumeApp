@@ -11,7 +11,6 @@
 		1DF5ED3BFA06258E6F170951 /* Pods_ResumeAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21A55365720D40043D70A9A9 /* Pods_ResumeAppTests.framework */; };
 		4D856FE328DB3EBA004736F5 /* UploadPhotoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D856FE228DB3EBA004736F5 /* UploadPhotoController.swift */; };
 		547DCEB287A614D0A57F8610 /* Pods_ResumeApp_ResumeAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C81894603E3830C452289086 /* Pods_ResumeApp_ResumeAppUITests.framework */; };
-		C6109BDF28C7880000DC1182 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6109BDE28C7880000DC1182 /* UserData.swift */; };
 		C6109BE128C78AFA00DC1182 /* IconsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6109BE028C78AFA00DC1182 /* IconsView.swift */; };
 		C65BDF7528B5113200A3628A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C65BDF7428B5113200A3628A /* GoogleService-Info.plist */; };
 		C69F5D8428B012480085AD79 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69F5D8328B012480085AD79 /* AppDelegate.swift */; };
@@ -57,7 +56,6 @@
 		6B183947BCD0EDCC6C221BBE /* Pods-ResumeAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ResumeAppTests.debug.xcconfig"; path = "Target Support Files/Pods-ResumeAppTests/Pods-ResumeAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A1A7E9BC4C8643FA60FD62F0 /* Pods-ResumeApp-ResumeAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ResumeApp-ResumeAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-ResumeApp-ResumeAppUITests/Pods-ResumeApp-ResumeAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A543A8AD53E30FCF06B88569 /* Pods-ResumeApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ResumeApp.release.xcconfig"; path = "Target Support Files/Pods-ResumeApp/Pods-ResumeApp.release.xcconfig"; sourceTree = "<group>"; };
-		C6109BDE28C7880000DC1182 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		C6109BE028C78AFA00DC1182 /* IconsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconsView.swift; sourceTree = "<group>"; };
 		C65BDF7428B5113200A3628A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C69F5D8028B012480085AD79 /* ResumeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ResumeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -139,7 +137,6 @@
 		C6109BDD28C787C600DC1182 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				C6109BDE28C7880000DC1182 /* UserData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -233,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				C69F5DBE28B014D20085AD79 /* Utilities.swift */,
+				C6109BE028C78AFA00DC1182 /* IconsView.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -242,7 +240,6 @@
 			children = (
 				C69F5D8928B012480085AD79 /* Main.storyboard */,
 				C69F5D8E28B0124D0085AD79 /* LaunchScreen.storyboard */,
-				C6109BE028C78AFA00DC1182 /* IconsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -496,7 +493,6 @@
 				4D856FE328DB3EBA004736F5 /* UploadPhotoController.swift in Sources */,
 				C69F5DBF28B014D20085AD79 /* Utilities.swift in Sources */,
 				C69F5DB728B0139C0085AD79 /* SignUpViewController.swift in Sources */,
-				C6109BDF28C7880000DC1182 /* UserData.swift in Sources */,
 				C69F5DBA28B013E80085AD79 /* LoginViewController.swift in Sources */,
 				C69F5D8628B012480085AD79 /* SceneDelegate.swift in Sources */,
 				C69F5DBC28B0145E0085AD79 /* HomeViewController.swift in Sources */,

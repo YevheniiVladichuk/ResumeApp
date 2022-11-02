@@ -17,28 +17,27 @@ class UploadPhotoController: UIViewController, UINavigationControllerDelegate, U
     let nextButton = UIButton()
     let skipButton = UIButton()
     let choosePhotoButton = UIButton()
-   
+    let homeVC = HomeViewController()
     
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
         addElementsToTheUI()
-        
     }
+    
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         Utilities.photoViewStyle(imageView)
     }
 
+    
     func addElementsToTheUI() {
-        
     //add new view
         newView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(newView)
        
-        
-
         newView.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
         newView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -125).isActive = true
         newView.heightAnchor.constraint(equalToConstant: 225).isActive = true
@@ -49,22 +48,18 @@ class UploadPhotoController: UIViewController, UINavigationControllerDelegate, U
         imageView.translatesAutoresizingMaskIntoConstraints =  false
         newView.addSubview(imageView)
         
-        
-
         imageView.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: 0).isActive = true
         imageView.trailingAnchor.constraint(equalTo: margins.trailingAnchor, constant: 0).isActive = true
         imageView.topAnchor.constraint(equalTo: margins.topAnchor, constant: 0).isActive = true
         imageView.bottomAnchor.constraint(equalTo: margins.bottomAnchor, constant: 0).isActive = true
 
     //add choose photo button
-        
         choosePhotoButton.setTitle("Сhoose photo", for: .normal)
         Utilities.styleClearButtonBlack(choosePhotoButton)
         choosePhotoButton.configuration = .plain()
         choosePhotoButton.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(choosePhotoButton)
         choosePhotoButton.addTarget(self, action: #selector(chooseButtonTapped), for: .touchUpInside)
-
 
         choosePhotoButton.topAnchor.constraint(equalTo: margins.bottomAnchor, constant: 25).isActive = true
         choosePhotoButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
@@ -73,20 +68,17 @@ class UploadPhotoController: UIViewController, UINavigationControllerDelegate, U
         choosePhotoButton.widthAnchor.constraint(equalToConstant: 185).isActive = true
         
         
-        
-        
     //add skip button
-        
         skipButton.setTitle("Skip", for: .normal)
         skipButton.configuration = .plain()
         skipButton.tintColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         skipButton.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(skipButton)
+        
         skipButton.addTarget(self, action: #selector(skipButtonTapped), for: .touchUpInside)
         
         skipButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
     
-        
         skipButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -35).isActive = true
         
         skipButton.widthAnchor.constraint(equalToConstant: 185).isActive = true
@@ -94,7 +86,6 @@ class UploadPhotoController: UIViewController, UINavigationControllerDelegate, U
         
         
     //add nextButton which upload photo to the DataBase and drop to the next view
-       
         nextButton.setTitle("Next", for: .normal)
         Utilities.styleFilledButton(nextButton)
         nextButton.translatesAutoresizingMaskIntoConstraints =  false
@@ -109,7 +100,6 @@ class UploadPhotoController: UIViewController, UINavigationControllerDelegate, U
         nextButton.isEnabled = false
         
         nextButton.addTarget(self, action: #selector(nextButtonTapped), for: .touchUpInside)
-        
     }
     
     
@@ -124,6 +114,8 @@ class UploadPhotoController: UIViewController, UINavigationControllerDelegate, U
             
             self.present(image, animated: true)
         }
+    
+    
     
         func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
              guard let image = info[.editedImage] as? UIImage else { return }
@@ -140,13 +132,16 @@ class UploadPhotoController: UIViewController, UINavigationControllerDelegate, U
                 skipButton.isEnabled = false
             }
         }
-                             
+          
+    
+    
         @objc func skipButtonTapped() {
             segue(id: "TabBarController")
         }
     
-    //upload photo to the FireBase and show next view
     
+    
+    //upload photo to the FireBase and show next view
          @objc func nextButtonTapped() {
             
              guard FirebaseAuth.Auth.auth().currentUser != nil else {return print ("something wrong")}
@@ -164,10 +159,16 @@ class UploadPhotoController: UIViewController, UINavigationControllerDelegate, U
                      return
                  }
                  print ("Upload success")
-                 self.segue(id: "TabBarController")
-             }
-             
+                 
+                 if self.imageView.image == nil {
+                     self.segue(id: "TabBarController")
+                 } else {
+                     sleep(1)
+                     self.segue(id: "TabBarController")
+                 }
+            }
         }
+    
     
     
     //segue to next view
@@ -176,5 +177,4 @@ class UploadPhotoController: UIViewController, UINavigationControllerDelegate, U
         view?.window?.rootViewController = nextView
         view?.window?.makeKeyAndVisible()
     }
-    
 }
