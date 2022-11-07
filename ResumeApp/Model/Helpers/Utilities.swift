@@ -68,5 +68,27 @@ class Utilities {
         view.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         view.layer.backgroundColor = #colorLiteral(red: 0.9215685725, green: 0.9215685725, blue: 0.9215685725, alpha: 1)
     }
-    
+    //UI elements style
+    static func viewStyle(_ view: UIView) {
+        view.layer.cornerRadius = 25
+        view.layer.shadowColor = #colorLiteral(red: 0.8374180198, green: 0.8374378085, blue: 0.8374271393, alpha: 1)
+        view.layer.shadowOffset = CGSize(width: 0, height: 0)
+        view.layer.shadowRadius = 5
+        view.layer.shadowOpacity = 0.4
+        view.layer.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        view.layer.borderColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1)
+        view.layer.borderWidth = 0.5
+    }
+    static func activityIndicator()-> UIActivityIndicatorView {
+        
+        let activityIndicator = UIActivityIndicatorView(style: .large)
+        
+        activityIndicator.alpha = 1
+        activityIndicator.color = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        
+        activityIndicator.hidesWhenStopped = true
+        
+        
+        return activityIndicator
+    }
 }

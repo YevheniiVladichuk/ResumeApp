@@ -23,7 +23,7 @@ class ViewController: UIViewController {
         Utilities.styleClearButtonBlack(signUpButton)
         Utilities.styleFilledButton(logInButton)
     }
-
+    
     
     @IBAction func logInButtonTapped(_ sender: UIButton) {
         segue(id: "LoginVC")
@@ -49,7 +49,7 @@ class ViewController: UIViewController {
     
     
     func addVideo() {
-    
+        
         let bundlePath = Bundle.main.path(forResource: "hands", ofType: "mp4")
         guard bundlePath != nil else {return}
         
@@ -68,10 +68,11 @@ class ViewController: UIViewController {
         //creat size and frame
         videoPlayerLayer?.frame = CGRect(x: -self.view.frame.size.width*1.5, y:0, width: self.view.frame.size.width*4, height: self.view.frame.height)
         view.layer.insertSublayer(videoPlayerLayer!, at: 0)
-     
+        
         //play it
         videoPlayer?.playImmediately(atRate: 1)
     }
+    
 }
 
 

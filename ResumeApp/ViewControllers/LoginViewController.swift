@@ -11,6 +11,7 @@ import FirebaseFirestore
 import FirebaseDatabase
 import FirebaseStorage
 
+
 class LoginViewController: UIViewController {
     @IBOutlet var emailField: UITextField!
     @IBOutlet var passwordField: UITextField!
@@ -20,9 +21,12 @@ class LoginViewController: UIViewController {
     
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    
     
     
     override func viewDidAppear(_ animated: Bool) {
@@ -91,15 +95,18 @@ class LoginViewController: UIViewController {
     
     //login
     func login() {
+        
         Auth.auth().signIn(withEmail: emailField.text!, password: passwordField.text!) { authResult, error in
             if error != nil {
                 print ("Failed to Log In with an error: \(error!.localizedDescription)")
                 self.showError(error: "Check your data or sign up")
                 return
-            }else {
-                self.segue(id: "HomeVC")
-                print ("Loged In success")
+            } else {
+                
+                self.segue(id: "TabBarController")
+                print ("Logged in success")
             }
         }
     }
+    
 }

@@ -25,7 +25,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet var ageField: UITextField!
     @IBOutlet var phoneNumberField: UITextField!
     
-
+    
     @IBOutlet var scrollView: UIScrollView!
     
     override func viewDidLoad() {
@@ -37,7 +37,6 @@ class SignUpViewController: UIViewController {
         super.viewDidAppear(animated)
         stylizeElements()
     }
-    
     
     
     @IBAction func hideKeyboard(_ sender: Any) {
@@ -56,7 +55,7 @@ class SignUpViewController: UIViewController {
     @IBAction func alreadyHaveAccountButtonTapped(_ sender: UIButton) {
         segue(id: "LoginVC")
     }
-
+    
     
     //buttons and fields style
     func stylizeElements() {
@@ -107,7 +106,7 @@ class SignUpViewController: UIViewController {
             phoneNumberField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
             return "Sorry, you need to fil all fields !"
         }
-     return nil
+        return nil
     }
     
     
@@ -137,7 +136,7 @@ class SignUpViewController: UIViewController {
             }
             self.segue(id: "UploadPhotoVC")
             print ("Succesfully signed up")
-       }
+        }
     }
 }
 
