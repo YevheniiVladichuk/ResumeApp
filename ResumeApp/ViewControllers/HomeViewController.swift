@@ -28,41 +28,25 @@ class HomeViewController: UIViewController {
     @IBOutlet var phoneNumberLabel: UILabel!
     
     let loadingView = UIView()
-    let activityIndicator = Utilities.activityIndicator()
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        view.addSubview(loadingView)
-        loadingView.alpha = 1
-        loadingView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        loadingView.translatesAutoresizingMaskIntoConstraints = false
-        loadingView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
-        loadingView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
-        loadingView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
-        loadingView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
-        loadingView.addSubview(activityIndicator)
-        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
-        activityIndicator.centerXAnchor.constraint(equalTo: loadingView.centerXAnchor).isActive = true
-        activityIndicator.centerYAnchor.constraint(equalTo: loadingView.centerYAnchor).isActive = true
-        activityIndicator.heightAnchor.constraint(equalToConstant: 25).isActive = true
-        activityIndicator.widthAnchor.constraint(equalToConstant: 25).isActive = true
-        activityIndicator.startAnimating()
-        checkIfUserLogedInAndFilTheField()
+        
         logOutButton.tintColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-            self.activityIndicator.stopAnimating()
-            self.activityIndicator.removeFromSuperview()
+        view.addSubview(loadingView)
+        loadingViewConstraints()
+        loadingView.addSubview(Utilities.activityIndicator)
+        Utilities.activityIndicatorSetting(view: loadingView)
+        Utilities.activityIndicator.startAnimating()
+        checkIfUserLogedInAndFilTheField()
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            Utilities.activityIndicator.stopAnimating()
+            Utilities.activityIndicator.removeFromSuperview()
             self.loadingView.alpha = 0
             self.loadingView.removeFromSuperview()
         }
-       
-            
     }
-    
-    
     
     @IBAction func logOut(_ sender: UIButton) {
         do {
@@ -73,13 +57,12 @@ class HomeViewController: UIViewController {
             print ("Failed to sign out with error: \(err)")
             
         }
-        segue(id: "LoginVC")
+        Utilities.segue(vc: self, id: "LoginVC")
     }
     
     
     //check if loged in and fill information
     func checkIfUserLogedInAndFilTheField() {
-            
         
         guard let uid = FirebaseAuth.Auth.auth().currentUser?.uid else {return}
         
@@ -107,15 +90,16 @@ class HomeViewController: UIViewController {
         imageViewPhoto.layer.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         imageViewPhoto.layer.borderColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1)
         imageViewPhoto.layer.borderWidth = 0.5
-        
     }
     
-    
-    //segue to the next view
-    func segue(id: String) {
-        let nextView = storyboard?.instantiateViewController(withIdentifier: id)
-        view?.window?.rootViewController = nextView
-        view?.window?.makeKeyAndVisible()
+    func loadingViewConstraints() {
+        loadingView.alpha = 1
+        loadingView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        loadingView.translatesAutoresizingMaskIntoConstraints = false
+        loadingView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
+        loadingView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
+        loadingView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
+        loadingView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
     }
     
 }

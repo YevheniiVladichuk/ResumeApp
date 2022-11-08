@@ -10,7 +10,7 @@
 		14E83D75F4AED5DF5B1C9EB0 /* Pods_ResumeApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FED5DDB23E11BA2C50FE4CF0 /* Pods_ResumeApp.framework */; };
 		1DF5ED3BFA06258E6F170951 /* Pods_ResumeAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21A55365720D40043D70A9A9 /* Pods_ResumeAppTests.framework */; };
 		4D856FE328DB3EBA004736F5 /* UploadPhotoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D856FE228DB3EBA004736F5 /* UploadPhotoController.swift */; };
-		4DD3074A29195616007313D7 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD3074929195616007313D7 /* Data.swift */; };
+		4DD64B4A291AD60E00ADF0CC /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD64B49291AD60E00ADF0CC /* Network.swift */; };
 		547DCEB287A614D0A57F8610 /* Pods_ResumeApp_ResumeAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C81894603E3830C452289086 /* Pods_ResumeApp_ResumeAppUITests.framework */; };
 		C6109BE128C78AFA00DC1182 /* IconsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6109BE028C78AFA00DC1182 /* IconsView.swift */; };
 		C65BDF7528B5113200A3628A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C65BDF7428B5113200A3628A /* GoogleService-Info.plist */; };
@@ -54,7 +54,7 @@
 		21A55365720D40043D70A9A9 /* Pods_ResumeAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ResumeAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DFA0FEF0BF26449C888C17E /* Pods-ResumeApp-ResumeAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ResumeApp-ResumeAppUITests.release.xcconfig"; path = "Target Support Files/Pods-ResumeApp-ResumeAppUITests/Pods-ResumeApp-ResumeAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		4D856FE228DB3EBA004736F5 /* UploadPhotoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPhotoController.swift; sourceTree = "<group>"; };
-		4DD3074929195616007313D7 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		4DD64B49291AD60E00ADF0CC /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		6B183947BCD0EDCC6C221BBE /* Pods-ResumeAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ResumeAppTests.debug.xcconfig"; path = "Target Support Files/Pods-ResumeAppTests/Pods-ResumeAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A1A7E9BC4C8643FA60FD62F0 /* Pods-ResumeApp-ResumeAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ResumeApp-ResumeAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-ResumeApp-ResumeAppUITests/Pods-ResumeApp-ResumeAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A543A8AD53E30FCF06B88569 /* Pods-ResumeApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ResumeApp.release.xcconfig"; path = "Target Support Files/Pods-ResumeApp/Pods-ResumeApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -140,7 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				C69F5DBD28B014BE0085AD79 /* Helpers */,
-				4DD3074929195616007313D7 /* Data.swift */,
+				4DD64B49291AD60E00ADF0CC /* Network.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -493,9 +493,9 @@
 			files = (
 				C69F5D8828B012480085AD79 /* ViewController.swift in Sources */,
 				C69F5D8428B012480085AD79 /* AppDelegate.swift in Sources */,
+				4DD64B4A291AD60E00ADF0CC /* Network.swift in Sources */,
 				4D856FE328DB3EBA004736F5 /* UploadPhotoController.swift in Sources */,
 				C69F5DBF28B014D20085AD79 /* Utilities.swift in Sources */,
-				4DD3074A29195616007313D7 /* Data.swift in Sources */,
 				C69F5DB728B0139C0085AD79 /* SignUpViewController.swift in Sources */,
 				C69F5DBA28B013E80085AD79 /* LoginViewController.swift in Sources */,
 				C69F5D8628B012480085AD79 /* SceneDelegate.swift in Sources */,

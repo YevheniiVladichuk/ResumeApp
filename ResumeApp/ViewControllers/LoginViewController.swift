@@ -20,14 +20,9 @@ class LoginViewController: UIViewController {
     @IBOutlet var signUpButton: UIButton!
     
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
-    
-    
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -35,7 +30,7 @@ class LoginViewController: UIViewController {
     }
     
     
-    //keyboard disappear by tap anywhere view
+    //keyboard disappear by tap anywhere on the view
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
@@ -43,13 +38,13 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginButtonTapped(_ sender: UIButton) {
         let error = chekFields()
-        guard error == nil else {return showError(error: error!)}
-        login()
+        guard error == nil else {return Network.showError(error: error!, label: errorLabel)}
+        Network.login(email: emailField.text!, password: passwordField.text!, errorLabel: errorLabel, currentVC: self)
     }
     
     
     @IBAction func signUpButtonTapped(_ sender: UIButton) {
-        segue(id: "SignUpVC")
+        Utilities.segue(vc: self, id: "SignUpVC")
     }
     
     
@@ -67,15 +62,6 @@ class LoginViewController: UIViewController {
         passwordField.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray.withAlphaComponent(0.5)])
     }
     
-    
-    //segue to the next view
-    func segue(id: String) {
-        let nextView = storyboard?.instantiateViewController(withIdentifier: id)
-        view?.window?.rootViewController = nextView
-        view?.window?.makeKeyAndVisible()
-    }
-    
-    
     //check fields
     func chekFields() -> String? {
         self.view.endEditing(true)
@@ -85,28 +71,27 @@ class LoginViewController: UIViewController {
         return nil
     }
     
-    
-    //show error message
-    func showError(error: String) {
-        errorLabel.alpha = 1
-        errorLabel.text! = error
-    }
-    
-    
-    //login
-    func login() {
-        
-        Auth.auth().signIn(withEmail: emailField.text!, password: passwordField.text!) { authResult, error in
-            if error != nil {
-                print ("Failed to Log In with an error: \(error!.localizedDescription)")
-                self.showError(error: "Check your data or sign up")
-                return
-            } else {
-                
-                self.segue(id: "TabBarController")
-                print ("Logged in success")
-            }
-        }
-    }
-    
 }
+
+
+//    //show error message
+//    func showError(error: String) {
+//        errorLabel.alpha = 1
+//        errorLabel.text! = error
+//    }
+    
+    
+//    //login
+//    func login() {
+//
+//        Auth.auth().signIn(withEmail: emailField.text!, password: passwordField.text!) { authResult, error in
+//            if error != nil {
+//                print ("Failed to Log In with an error: \(error!.localizedDescription)")
+//                self.showError(error: "Check your data or sign up")
+//                return
+//            } else {
+//                Utilities.segue(vc: self, id: "TabBarController")
+//                print ("Logged in success")
+//            }
+//        }
+//    }

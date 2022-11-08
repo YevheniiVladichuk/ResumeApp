@@ -10,6 +10,33 @@ import UIKit
 
 class Utilities {
     
+    static let activityIndicator = UIActivityIndicatorView()
+    
+    static func activityIndicatorSetting(view: UIView) {
+        
+        let view = view
+        
+        activityIndicator.style = .medium
+        activityIndicator.alpha = 1
+        activityIndicator.color = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
+        activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 0).isActive = true
+        activityIndicator.heightAnchor.constraint(equalToConstant: 25).isActive = true
+        activityIndicator.widthAnchor.constraint(equalToConstant: 25).isActive = true
+        
+        activityIndicator.hidesWhenStopped = true
+    }
+    
+    //segue to the next view
+    static func segue(vc:UIViewController, id: String) {
+        let vc = vc
+        let nextView = vc.storyboard?.instantiateViewController(withIdentifier: id)
+        vc.view?.window?.rootViewController = nextView
+        vc.view?.window?.makeKeyAndVisible()
+    }
+    
     //clear button style (white tint)
     static func styleClearButtonWhite(_ button: UIButton) {
         button.layer.borderWidth = 0.75
@@ -51,7 +78,6 @@ class Utilities {
         textField.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
     }
     
-    
     //password check
     static func checkPassword(_ passord: String) -> Bool {
         let passwordCheck = NSPredicate(format: "SELF MATCHES %@", "^(?=.*[a-z])(?=.*[$@$#!%*?&])[A-Za-z\\d$@$#!%*?&]{8,}")
@@ -79,16 +105,5 @@ class Utilities {
         view.layer.borderColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1)
         view.layer.borderWidth = 0.5
     }
-    static func activityIndicator()-> UIActivityIndicatorView {
-        
-        let activityIndicator = UIActivityIndicatorView(style: .large)
-        
-        activityIndicator.alpha = 1
-        activityIndicator.color = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        
-        activityIndicator.hidesWhenStopped = true
-        
-        
-        return activityIndicator
-    }
+    
 }

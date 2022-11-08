@@ -26,21 +26,14 @@ class ViewController: UIViewController {
     
     
     @IBAction func logInButtonTapped(_ sender: UIButton) {
-        segue(id: "LoginVC")
+        Utilities.segue(vc: self, id: "LoginVC")
     }
     
     
     @IBAction func signUpButtonTapped(_ sender: UIButton) {
-        segue(id: "SignUpVC")
+        Utilities.segue(vc: self, id: "SignUpVC")
     }
     
-    
-    //segue to next view
-    func segue(id: String ) {
-        let nextView = storyboard?.instantiateViewController(withIdentifier: id)
-        view?.window?.rootViewController = nextView
-        view?.window?.makeKeyAndVisible()
-    }
     
     //add video to the view
     override func viewWillAppear(_ animated: Bool) {

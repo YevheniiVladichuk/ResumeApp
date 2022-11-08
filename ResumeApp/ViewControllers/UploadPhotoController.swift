@@ -135,7 +135,7 @@ class UploadPhotoController: UIViewController, UINavigationControllerDelegate, U
     
     
     @objc func skipButtonTapped() {
-        segue(id: "TabBarController")
+        Utilities.segue(vc: self, id: "TabBarController")
     }
     
     
@@ -160,21 +160,12 @@ class UploadPhotoController: UIViewController, UINavigationControllerDelegate, U
             print ("Upload success")
             
             if self.imageView.image == nil {
-                self.segue(id: "TabBarController")
+                Utilities.segue(vc: self, id: "TabBarController")
             } else {
                 sleep(1)
-                self.segue(id: "TabBarController")
+                Utilities.segue(vc: self, id: "TabBarController")
             }
         }
-    }
-    
-    
-    
-    //segue to next view
-    func segue(id: String ) {
-        let nextView = storyboard?.instantiateViewController(withIdentifier: id)
-        view?.window?.rootViewController = nextView
-        view?.window?.makeKeyAndVisible()
     }
     
 }
